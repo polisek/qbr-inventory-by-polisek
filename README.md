@@ -19,7 +19,7 @@
 
 
 
-Original - QBR Inventory https://github.com/RexShack/qbr-server/tree/af490bc649de663d1defabf952d06c52ae16d283/server-data/resources/%5Bqbr%5D/qbr-inventory
+Original - QBR Inventory https://github.com/qbcore-redm-framework/qbr-inventory
 
 
 # Support
