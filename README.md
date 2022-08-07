@@ -15,3 +15,7 @@
 - Copy and paste html / css  /  main.css
 
 ![image](https://user-images.githubusercontent.com/107623238/183285472-a53698ea-93f1-4ebb-8f72-e97685491a79.png)
+
+
+
+QBR Inventory https://github.com/RexShack/qbr-server/tree/af490bc649de663d1defabf952d06c52ae16d283/server-data/resources/%5Bqbr%5D/qbr-inventory
