@@ -7,6 +7,7 @@
 - You don't need to edit qbr-weapons
 - If you throw away the item, the gun disappears from your hands.
 - When give weapon giving with ammo
+- Bow fixed - When you draw your bow it will check if you have arrows. If you do it will automatically reload when the bow is empty.
 
 - Just copy and paste client/ main.lua
 - Just copy and paste server / main.lua
