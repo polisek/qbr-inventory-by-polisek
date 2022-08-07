@@ -3,11 +3,12 @@
 - Fixed saving ammo + saving to db
 - Saves on every shot
 - You can only have 1 Molotov or Dynamite and it will be deleted from your inventory when discarded.
-- It is stored using the serial number. So if the player changes the position of the weapon in the inventory he still remembers it.
+- It is saved using the serial number. So if the player changes the position of the weapon in the inventory he still remembers it.
 - You don't need to edit qbr-weapons
+- If you throw away the item, the gun disappears from your hands.
+- When give weapon giving with ammo
 
-
-- Just copy and paste client/main.lua   
+- Just copy and paste client/ main.lua
 - Just copy and paste server / main.lua
 
 **If you need**
