@@ -6,11 +6,14 @@
 - It is stored using the serial number. So if the player changes the position of the weapon in the inventory he still remembers it.
 - You don't need to edit qbr-weapons
 
-**If you need**
-- Displays 5 slot in line ( screen ) 
 
 - Just copy and paste client/main.lua   
 - Just copy and paste server / main.lua
+
+**If you need**
+- Displays 5 slot in line ( screen ) 
+
+
 
 **If you need**
 - Copy and paste html / css  /  main.css
