@@ -429,6 +429,29 @@ RegisterNetEvent("inventory:client:UseWeapon", function(weaponData, shootbool)
                 end
             end
             Citizen.InvokeNative(0x5E3BDDBCB83F3D84, ply, hash, 0, false, true)
+        elseif weaponName == 'weapon_bow' or weaponName == 'weapon_bow_improved' then
+
+            if weaponData.info.ammo == nil then
+                if haveArrows() then
+                    weaponData.info.ammo = 14
+                    weaponData.info.ammoclip = 14
+                    TriggerServerEvent('QBCore:Server:RemoveItem', "ammo_arrow",1)
+                else
+                    weaponData.info.ammo = 0
+                    weaponData.info.ammoclip = 0
+                end
+            elseif weaponData.info.ammo == 0 then
+                if haveArrows() then
+                    weaponData.info.ammo = 14
+                    weaponData.info.ammoclip = 14
+                    TriggerServerEvent('QBCore:Server:RemoveItem', "ammo_arrow",1)
+                else
+                    weaponData.info.ammo = 0
+                    weaponData.info.ammoclip = 0
+                end
+            end
+            Citizen.InvokeNative(0x5E3BDDBCB83F3D84, ply, hash, 0, false, true)
+
         else
             if weaponData.info.ammo == nil then
                 weaponData.info.ammo = 0
@@ -437,7 +460,7 @@ RegisterNetEvent("inventory:client:UseWeapon", function(weaponData, shootbool)
             Citizen.InvokeNative(0x5E3BDDBCB83F3D84, ply, hash, 0, false, true)
         end
 
-        if weaponName == "weapon_thrown_dynamite" or weaponName == "weapon_thrown_molotov" or weaponName == "weapon_thrown_throwing_knives" or weaponName == "weapon_thrown_tomahawk" or weaponName == "weapon_thrown_tomahawk_ancient" or weaponName == "weapon_thrown_bolas" then
+        if weaponName == 'weapon_bow' or weaponName == 'weapon_bow_improved' or weaponName == "weapon_thrown_dynamite" or weaponName == "weapon_thrown_molotov" or weaponName == "weapon_thrown_throwing_knives" or weaponName == "weapon_thrown_tomahawk" or weaponName == "weapon_thrown_tomahawk_ancient" or weaponName == "weapon_thrown_bolas" then
             SetPedAmmo(ply, hash ,weaponData.info.ammo)
         else
             SetPedAmmo(ply, hash ,weaponData.info.ammo - weaponData.info.ammoclip)
@@ -454,7 +477,6 @@ RegisterNetEvent("inventory:client:UseWeapon", function(weaponData, shootbool)
 
 
 end)
-
 
 
 Citizen.CreateThread(function()
@@ -498,9 +520,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-
-
-
 function dump(o)
     if type(o) == 'table' then
        local s = '{ '
@@ -512,6 +531,17 @@ function dump(o)
     else
        return tostring(o)
     end
+ end
+
+
+function haveArrows()
+    local haveArrow = false
+    for k,v in pairs(PlayerData.items) do 
+        if v.name == "ammo_arrow" then
+            haveArrow = true
+        end
+    end 
+    return haveArrow
  end
 
 RegisterNetEvent('inventory:client:CheckWeapon', function(weaponName)
@@ -1148,7 +1178,6 @@ CreateThread(function()
 end)
 
 
-
 RegisterCommand('craft', function()
     TriggerEvent("pls:craftingmenu")
 end, false)
@@ -1163,47 +1192,3 @@ CreateThread(function()
 	end
 end)
 
--- Vaření 
-RegisterNetEvent('pls:craftingmenu', function(data)
-    exports['qbr-menu']:openMenu({
-        {
-            header = "| Výrobní menu |",
-            isMenuHeader = true,
-        },
-        {
-            header = "Výroba nádobí",
-            txt = "Už víš co si do něj dáš?",
-            params = {
-                event = 'qbr-menu:closeMenu',
-            }
-        },
-        {
-            header = "Výroba semínek",
-            txt = "Zasaď pak kolik je libo",
-            params = {
-                event = 'qbr-menu:closeMenu',
-            }
-        },
-        {
-            header = "Výroba nářadí",
-            txt = "Hlavně si neubliž",
-            params = {
-                event = 'qbr-menu:closeMenu',
-            }
-        },
-        {
-            header = "Výroba zbraní",
-            txt = "Hlavně si neubliž",
-            params = {
-                event = 'qbr-menu:closeMenu',
-            }
-        },
-        {
-            header = "Zavřít menu",
-            txt = '',
-            params = {
-                event = 'qbr-menu:closeMenu',
-            }
-        },
-    })
-end)
