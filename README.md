@@ -8,8 +8,8 @@
 **If you need**
 - Displays 5 slot in line ( screen ) 
 
-- Just copy client/main.lua   
-- Just copy server / main.lua
+- Just copy and paste client/main.lua   
+- Just copy and paste server / main.lua
 
 **If you need**
 - Copy and paste html / css  /  main.css
