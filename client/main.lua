@@ -220,9 +220,7 @@ local function GetThresholdItems()
 	ItemsToItemInfo()
 	local items = {}
 	for k, item in pairs(Config.CraftingItems) do
-		if PlayerData.metadata["craftingrep"] >= Config.CraftingItems[k].threshold then
-			items[k] = Config.CraftingItems[k]
-		end
+		items[k] = Config.CraftingItems[k]
 	end
 	return items
 end
